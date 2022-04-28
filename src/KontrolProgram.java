@@ -5,16 +5,12 @@ public class KontrolProgram {
 
 	public static void main(String[] args) {
 	
-		try {
-			Connection conn = DriverManager.getConnection(
-					"jdbc:postgresql://localhost:5432/klima",
-                    "postgres", "12345");
-			
-			
-		}
-		catch(Exception e) {
-			System.out.println("Baglanti sirasinda bir hata olustu !!!");
-		}
+	
+		PostgreSQLSurucu postgreSQLSurucu =new PostgreSQLSurucu();
+		postgreSQLSurucu.kullaniciDogrula("Said", "Gorg");
+		
+		
+		
 		
 //		
 //		Klima klima =new Klima(); 
