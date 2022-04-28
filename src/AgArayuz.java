@@ -9,7 +9,7 @@ public class AgArayuz {
 	Ekran ekran	= new Ekran();
 		int secim=0;
 	
-		while(secim !=4) {
+		while(secim !=5) {
 			
 			
 			ekran.mesajGoruntule("**********************************************");
@@ -35,9 +35,18 @@ public class AgArayuz {
 			}
 			
 			if(secim==3) {
+				ekran.mesajGoruntule("Sicaklik goruntuleniyor...");
+				SicaklikAlgilayici sicaklikAlgilayici =new SicaklikAlgilayici();
+				ekran.mesajGoruntule("Sicaklik :" +sicaklikAlgilayici.sicaklikOku()+" °C");
+			}
+			
+			if(secim==4) {
+				
+				ekran.mesajGoruntule("Çýkýlýyor...");
 				
 				
 			}
+			
 			
 		}
 		
