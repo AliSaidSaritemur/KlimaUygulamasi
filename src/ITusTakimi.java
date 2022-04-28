@@ -1,5 +1,5 @@
 
-
 public interface ITusTakimi {
-    public int veriAl();
+    public int veriAlInt();
+    public String veriAlString();
 }

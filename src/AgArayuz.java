@@ -17,23 +17,24 @@ TusTakimi tusTakimi= new TusTakimi();
 			ekran.mesajGoruntule("3-Sicaklik Goruntule");
 			ekran.mesajGoruntule("4-Cikis");
 			ekran.mesajGoruntule("Seciminiz:");
-			secim =tusTakimi.veriAl();
+			secim =tusTakimi.veriAlInt();
 			ekran.mesajGoruntule("**********************************************");
 								
 			if(secim==1) {
 				eyleyici.sogutucuAc();
-				
+				continue;
 			}
 			
 			if(secim==2) {
 				eyleyici.sogutucuKapat();
-				
+				continue;
 			}
 			
 			if(secim==3) {
 				ekran.mesajGoruntule("Sicaklik goruntuleniyor...");
 				SicaklikAlgilayici sicaklikAlgilayici =new SicaklikAlgilayici();
 				ekran.mesajGoruntule("Sicaklik :" +sicaklikAlgilayici.sicaklikOku()+" °C");
+				continue;
 			}
 			
 			if(secim==4) {
