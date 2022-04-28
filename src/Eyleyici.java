@@ -11,7 +11,7 @@ public class Eyleyici implements IEyleyici {
 		if(!Klima.klimaDurum) {
 		
 			 System.out.println("Sogutucu aciliyor...");
-			 Araclar.bekle();
+			 Araclar.bekle(1000);
 					 System.out.println("Sogutucu acildi...");	
 					 Klima.klimaDurum=true;
 		}
@@ -28,7 +28,7 @@ public class Eyleyici implements IEyleyici {
 if(Klima.klimaDurum) {
 	 System.out.println("Sogutucu kapatiliyor...");
 	
-	 Araclar.bekle();
+	 Araclar.bekle(1000);
 			 System.out.println("Sogutucu kapandi...");	
 			 Klima.klimaDurum=false;
 

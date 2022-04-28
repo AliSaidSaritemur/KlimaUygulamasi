@@ -1,16 +1,14 @@
 
 
-import java.util.Scanner; 
 public class AgArayuz {
 	
-		 Scanner scan = new Scanner(System.in);
-		 
+TusTakimi tusTakimi= new TusTakimi();
+		 Eyleyici eyleyici =new Eyleyici();
 	public AgArayuz() {
 	Ekran ekran	= new Ekran();
 		int secim=0;
 	
-		while(secim !=5) {
-			
+		while(true) {
 			
 			ekran.mesajGoruntule("**********************************************");
 			ekran.mesajGoruntule("Ana Menu");
@@ -19,18 +17,16 @@ public class AgArayuz {
 			ekran.mesajGoruntule("3-Sicaklik Goruntule");
 			ekran.mesajGoruntule("4-Cikis");
 			ekran.mesajGoruntule("Seciminiz:");
-			secim= scan.nextInt();
+			secim =tusTakimi.veriAl();
 			ekran.mesajGoruntule("**********************************************");
-			
-			
-			
+								
 			if(secim==1) {
-				
+				eyleyici.sogutucuAc();
 				
 			}
 			
 			if(secim==2) {
-				
+				eyleyici.sogutucuKapat();
 				
 			}
 			
@@ -41,18 +37,15 @@ public class AgArayuz {
 			}
 			
 			if(secim==4) {
-				
 				ekran.mesajGoruntule("Çýkýlýyor...");
-				
-				
+				break;
+							
 			}
-			
-			
+			else {
+				ekran.mesajGoruntule("1-4 arasýnda bir sayý girmelisiniz");			
+			}
 		}
-		
-		
-		
-		
+			
 		
 	}
 	
