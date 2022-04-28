@@ -4,7 +4,8 @@ public class AgArayuz {
 	
 TusTakimi tusTakimi= new TusTakimi();
 		 Eyleyici eyleyici =new Eyleyici();
-	public AgArayuz() {
+
+		 public void secimEkraniGetir() {
 	Ekran ekran	= new Ekran();
 		int secim=0;
 	

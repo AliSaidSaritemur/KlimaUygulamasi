@@ -8,8 +8,8 @@ import java.sql.Statement;
 public class PostgreSQLSurucu implements IVeritabaniRepository {
 
 	Ekran ekran =new Ekran();
-	
-	
+	AgArayuz agArayuz =new AgArayuz();
+	TusTakimi tusTakimi = new TusTakimi();
 	
 	 private Connection baglan(){
 
@@ -30,34 +30,37 @@ public class PostgreSQLSurucu implements IVeritabaniRepository {
 	
 	
 	@Override
-	public KullaniciHesap kullaniciDogrula(String kullaniciAdi, String sifre) {
-		
+	public KullaniciHesap kullaniciDogrulaIsým() {
+			
 		KullaniciHesap kullaniciHesabi =null;
 
-	        System.out.println("banka bilgi sistemi kullanýcýyý doðruluyor...");
+	       ekran.mesajGoruntule("banka bilgi sistemi kullanýcýyý doðruluyor...");
 	        Araclar.bekle(2000);
-	        System.out.println("veritabanýna baðlandý (postgresql veritabaný yönetim sistemi) ve kullanýcýyý sorguluyor...");
+	        ekran.mesajGoruntule("veritabanýna baðlandý (postgresql veritabaný yönetim sistemi) ve kullanýcýyý sorguluyor...");
 	        Araclar.bekle(2000);
 
 	        Connection conn=this.baglan();
 	        
 	        try
 	        {
-
-//	            String sql= "SELECT *  FROM kullanici\" WHERE \"kullaniciAdi\"="+ kullaniciAdi;
-	        	// String sql="SELECT * FROM kullanici";
-
+	        	ekran.mesajGoruntule("Kullanici adinizi giriniz..");
+	        		String kullaniciAdi = tusTakimi.veriAlString();
 	            
 	            Statement selectStmt = conn.createStatement();
 	            ResultSet rs = selectStmt
 	              .executeQuery("SELECT * FROM kullanici WHERE kullaniciadi = "+"'"+kullaniciAdi+"'");
-	       
+	  
 	           
 	            if(!rs.next()) {
-	             ekran.mesajGoruntule("Bu kullanici adina sahip biri bulunamamkta !!!");       	
+	            	
+	             ekran.mesajGoruntule("Bu kullanici adina sahip biri bulunamamkta !!!"); 
+	             
+	             kullaniciDogrulaIsým();
 	            }
 	            else {
-	                 ekran.mesajGoruntule("simdilik OK");    		            	
+	    	                
+	            	kullaniciDogrulaSifre(selectStmt,kullaniciAdi);
+	                 
 	            } 
 	        
 	        } catch (Exception e) {
@@ -72,6 +75,35 @@ public class PostgreSQLSurucu implements IVeritabaniRepository {
 	public void hesapGuncelle(KullaniciHesap musteriHesabi) {
 		// TODO Auto-generated method stub
 		
+	}
+	@Override
+	public void kullaniciDogrulaSifre(Statement selectStmt,String kullaniciAdi) {
+		
+		
+		 ekran.mesajGoruntule("Sifrenizi giriniz..");
+ 		String sifre = tusTakimi.veriAlString();
+ 		try {
+ 		ResultSet  rs = selectStmt
+        .executeQuery("SELECT * FROM kullanici WHERE kullaniciadi = '"+kullaniciAdi+"' AND sifre = '"+sifre+"'");
+      
+      if(!rs.next()) {
+      	 ekran.mesajGoruntule("Sifre hatali !!!"); 	
+      	kullaniciDogrulaSifre( selectStmt, kullaniciAdi);
+          }
+      
+      else {
+      	ekran.mesajGoruntule("Kullanici onaylandi"); 
+      	ekran.mesajGoruntule("Secim ekraninina yonlendiriliyor..."); 
+      	Araclar.bekle(100);
+      	agArayuz.secimEkraniGetir();
+      }
+		}
+		
+		catch(Exception e) {
+	ekran.mesajGoruntule("Veri tabaninda bir hata olustu  !!!!");
+			
+		}
+	
 	}
 
 }
