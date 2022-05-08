@@ -8,35 +8,17 @@ public class Eyleyici implements IEyleyici {
 	
 	@Override
 	public void sogutucuAc() {
-		if(!Klima.klimaDurum) {
-		
-			 System.out.println("Sogutucu aciliyor...");
-			 Araclar.bekle(1000);
-					 System.out.println("Sogutucu acildi...");	
-					 Klima.klimaDurum=true;
-		}
-		else{ 
-			System.out.println("Sogutucu acik !!!");	
-		}  
 	
+	SogutucuAcma acma =new SogutucuAcma();
+	acma.islemYap();
 		
 	}
 
 	@Override
 	public void sogutucuKapat() {
 		
-if(Klima.klimaDurum) {
-	 System.out.println("Sogutucu kapatiliyor...");
-	
-	 Araclar.bekle(1000);
-			 System.out.println("Sogutucu kapandi...");	
-			 Klima.klimaDurum=false;
-
-}
-else{ 
-	System.out.println("Sogutucu kapali !!!");	
-}  
-		
+		SogutucuKapa kapa =new SogutucuKapa();
+		kapa.islemYap();
 	}
 
 }

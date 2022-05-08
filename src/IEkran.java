@@ -2,6 +2,5 @@
 
 public interface IEkran {
 	
-	public void mesajGoruntule(String mesaj);
-	    public void ekranTemizle();
+	public void mesajGoruntule(String mesaj);	    
 }

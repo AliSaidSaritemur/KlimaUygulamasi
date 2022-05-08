@@ -1,5 +1,5 @@
 
-public class KullaniciHesap {
+public class KullaniciHesap  implements IObserver {
 	
 	public KullaniciHesap(String kullaniciAdi, String kullaniciSifre) {
 		super();
@@ -21,5 +21,8 @@ public class KullaniciHesap {
 	public void setKullaniciSifre(String kullaniciSifre) {
 		this.kullaniciSifre = kullaniciSifre;
 	}
-	
+	@Override
+	public void update(boolean klimaDurum) {
+		System.out.println(this.kullaniciAdi+ "Kisisi Sogutucuyu "+(klimaDurum ? "Acdi" :"Kapadi"));		
+	}
 }
