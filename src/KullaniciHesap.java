@@ -23,6 +23,6 @@ public class KullaniciHesap  implements IObserver {
 	}
 	@Override
 	public void update(boolean klimaDurum) {
-		System.out.println(this.kullaniciAdi+ "Kisisi Sogutucuyu "+(klimaDurum ? "Acdi" :"Kapadi"));		
+		System.out.println(this.kullaniciAdi+ " Kisisi Sogutucuyu "+(klimaDurum ? "Acti" :"Kapadi"));		
 	}
 }

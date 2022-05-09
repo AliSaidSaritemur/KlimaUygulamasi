@@ -21,7 +21,7 @@ public class AkilliCihaz {
 	
 	private void kullaniciDogrula(){
 		
-		postgreSQLSurucu.kullaniciDogrulaIsým();
+		postgreSQLSurucu.kullaniciDogrulaIsim();
 	}
 	
 

@@ -8,7 +8,7 @@ import java.sql.Statement;
 public class PostgreSQLSurucu implements IVeritabaniRepository {
 
 	Ekran ekran =new Ekran();
-	AgArayuz agArayuz =new AgArayuz();
+
 	TusTakimi tusTakimi = new TusTakimi();
 public static KullaniciHesap hesap =new KullaniciHesap(null, null);
 	private  Connection conn; 
@@ -19,11 +19,11 @@ public static KullaniciHesap hesap =new KullaniciHesap(null, null);
 				 conn = DriverManager.getConnection(
 						"jdbc:postgresql://localhost:5432/klima",
 	                    "postgres", "12345");
-				 System.out.println("Veritabanýna baðlandý!");
+				 ekran.mesajGoruntule("Veritabanýna baðlandý!");
 				
 			}
 			catch(Exception e) {
-				System.out.println("Baglanti sirasinda bir hata olustu !!!");
+				 ekran.mesajGoruntule("Baglanti sirasinda bir hata olustu !!!");
 			}
 	        return conn;
 	    }
@@ -31,7 +31,7 @@ public static KullaniciHesap hesap =new KullaniciHesap(null, null);
 	
 	
 	@Override
-	public KullaniciHesap kullaniciDogrulaIsým() {
+	public KullaniciHesap kullaniciDogrulaIsim() {
 			
 		   
 	        try
@@ -48,9 +48,9 @@ public static KullaniciHesap hesap =new KullaniciHesap(null, null);
 	           
 	            if(!rs.next()) {
 	            	
-	             ekran.mesajGoruntule("Bu kullanici adina sahip biri bulunamamkta !!!"); 
+	             ekran.mesajGoruntule("Bu kullanici adina sahip biri bulunmamakta !!!"); 
 	             
-	             kullaniciDogrulaIsým();
+	             kullaniciDogrulaIsim();
 	            }
 	            else {
 	    	              
