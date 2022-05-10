@@ -32,7 +32,7 @@ public static KullaniciHesap hesap =new KullaniciHesap(null, null);
 	
 	@Override
 	public KullaniciHesap kullaniciDogrulaIsim() {
-			
+		   ekran.mesajGoruntule("veritabanýna baðlandý (postgresql veritabaný yönetim sistemi) ve kullanýcýyý sorguluyor...");
 		   
 	        try
 	        {
@@ -86,7 +86,7 @@ public static KullaniciHesap hesap =new KullaniciHesap(null, null);
       	ekran.mesajGoruntule("Kullanici onaylandi"); 
       	hesap.setKullaniciSifre(sifre);
       	ekran.mesajGoruntule("Secim ekraninina yonlendiriliyor..."); 
-      	Araclar.bekle(100);
+      	Araclar.bekle(1000);
       	return hesap;
 
       }
@@ -103,7 +103,7 @@ public static KullaniciHesap hesap =new KullaniciHesap(null, null);
 
 	@Override
 	public void veriTabaniBagla() {
-		   ekran.mesajGoruntule("veritabanýna baðlandý (postgresql veritabaný yönetim sistemi) ve kullanýcýyý sorguluyor...");
+		 ekran.mesajGoruntule("Veritabanýna baðlanýlýyor...");
 	        Araclar.bekle(2000); 
 	         conn=this.baglan();		
 	}

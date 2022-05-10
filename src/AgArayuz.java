@@ -33,8 +33,11 @@ TusTakimi tusTakimi= new TusTakimi();
 			
 			if(secim==3) {
 				ekran.mesajGoruntule("Sicaklik goruntuleniyor...");
+				Araclar.bekle(1000);
 				SicaklikAlgilayici sicaklikAlgilayici =new SicaklikAlgilayici();
 				ekran.mesajGoruntule("Sicaklik :" +sicaklikAlgilayici.sicaklikOku()+" °C");
+				ekran.mesajGoruntule("Secim ekraninina yonlendiriliyor..."); 
+		      	Araclar.bekle(1000);
 				continue;
 			}
 			
@@ -46,6 +49,7 @@ TusTakimi tusTakimi= new TusTakimi();
 			else {
 				ekran.mesajGoruntule("1-4 arasýnda bir sayý girmelisiniz");			
 			}
+	
 		}
 			
 		
